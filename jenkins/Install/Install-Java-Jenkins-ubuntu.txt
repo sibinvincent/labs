@@ -1,3 +1,8 @@
+####### You should first install ca-certificates before you start installing java
+
+sudo apt install ca-certificates
+
+
 Install JAVA
  
 	sudo add-apt-repository ppa:openjdk-r/ppa
