@@ -36,7 +36,7 @@
     sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-    ## Weave
+    ## Weave [this is pod network creation]
     kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')" 
 	
     kubectl get nodes
@@ -48,6 +48,33 @@
           
     Ex: kubeadm join 10.128.15.231:6443 --token mks3y2.v03tyyru0gy12mbt \
            --discovery-token-ca-cert-hash sha256:3de23d42c7002be0893339fbe558ee75e14399e11f22e3f0b34351077b7c4b56
+	   
+	   
+	   
+#### cluster join print command - to get the tocken of kubernetes master when ever you need 
+
+
+# kubeadm token create --print-join-command
+	   
+	   
+	   
+	   
+####  solution if you face issues with node connection failure issues while kubeadm join command [by sibin]
+
+first you should do swapoff  for disabling swap
+=====================================
+
+#swapoff -a
+
+then commit out swap in vi /etc/fstab
+
+
+
+
+now run the below command to reset kubeadm
+=================================
+#kubeadm reset 
+	   
 
 #
 
